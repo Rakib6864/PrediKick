@@ -5,7 +5,7 @@
 
 // Football API Configuration
 
-const API_KEY = "YOUR_API_KEY";
+const API_KEY = "1db6f76e7e16451244f6a725a02582ab";
 
 const API_URL = "https://v3.football.api-sports.io";
 
