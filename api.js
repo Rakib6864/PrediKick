@@ -1,136 +1,57 @@
-/* =====================================
-   PrediKick - api.js
-===================================== */
-
-
-// Football API Configuration
+// PrediKick API Mobile Test
 
 const API_KEY = "1db6f76e7e16451244f6a725a02582ab";
-
 const API_URL = "https://v3.football.api-sports.io";
 
 
+async function testAPI(){
 
-// API Request Function
+    const resultBox = document.createElement("pre");
 
-async function fetchFootball(endpoint){
-
-
-try{
-
-
-const response = await fetch(
-API_URL + endpoint,
-{
-
-method:"GET",
-
-headers:{
-
-"x-apisports-key": API_KEY
-
-}
-
-}
-
-);
+    resultBox.style.background = "#111";
+    resultBox.style.color = "#00ff00";
+    resultBox.style.padding = "15px";
+    resultBox.style.whiteSpace = "pre-wrap";
+    resultBox.style.fontSize = "12px";
 
 
-
-const data = await response.json();
-
-
-return data;
+    document.body.appendChild(resultBox);
 
 
+    try{
 
-}catch(error){
-
-
-console.log(
-"API Error:",
-error
-);
+        resultBox.innerHTML = "Loading API Data...";
 
 
-return null;
+        const response = await fetch(
+            `${API_URL}/fixtures?live=all`,
+            {
+                method:"GET",
+
+                headers:{
+                    "x-apisports-key": API_KEY
+                }
+            }
+        );
 
 
-}
+        const data = await response.json();
 
+
+        resultBox.innerHTML =
+        JSON.stringify(data,null,2);
+
+
+    }
+
+    catch(error){
+
+        resultBox.innerHTML =
+        "API Error:\n" + error;
+
+    }
 
 }
 
 
-
-
-// Get Live Matches
-
-async function getLiveMatches(){
-
-
-const matches = await fetchFootball(
-"/fixtures?live=all"
-);
-
-
-return matches;
-
-
-}
-
-
-
-
-// Get Today's Matches
-
-async function getTodayMatches(){
-
-
-const today = new Date()
-.toISOString()
-.split("T")[0];
-
-
-
-const matches = await fetchFootball(
-`/fixtures?date=${today}`
-);
-
-
-
-return matches;
-
-
-}
-
-
-
-
-
-// Get League Fixtures
-
-async function getLeagueMatches(league,season){
-
-
-const matches = await fetchFootball(
-
-`/fixtures?league=${league}&season=${season}`
-
-);
-
-
-
-return matches;
-
-
-}
-
-
-
-
-// Export
-
-console.log(
-"PrediKick API Ready ⚽"
-);
+testAPI();
