@@ -1,6 +1,6 @@
 // PrediKick API Mobile Test
 
-const API_KEY = "1db6f76e7e16451244f6a725a02582ab";
+const API_KEY = "fd493d5e979d7c6bc84bcf183191340e";
 const API_URL = "https://v3.football.api-sports.io";
 
 
