@@ -1,1 +1,100 @@
+/* ===========================
+   PrediKick - style.css
+   Part 1
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:#0f1117;
+    --card:#1a1d29;
+    --card2:#232838;
+    --green:#22c55e;
+    --white:#ffffff;
+    --gray:#b6bcc8;
+    --border:#2f3648;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:var(--bg);
+    color:var(--white);
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+.container{
+    width:95%;
+    max-width:1300px;
+    margin:auto;
+}
+
+/* HEADER */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:#131722;
+    padding:18px 5%;
+
+    border-bottom:1px solid var(--border);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:var(--green);
+}
+
+.logo span{
+    color:white;
+}
+
+.nav{
+    display:flex;
+    gap:30px;
+}
+
+.nav a{
+    color:white;
+    font-weight:500;
+    transition:.3s;
+}
+
+.nav a:hover{
+    color:var(--green);
+}
+
+.search-box{
+    display:flex;
+    align-items:center;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.search-box input{
+    border:none;
+    outline:none;
+    background:none;
+    color:white
 
